@@ -1,3 +1,4 @@
+import { Link as LinK } from '@chakra-ui/react'
 import React from 'react'
 
 export interface LinkProps {
@@ -17,11 +18,13 @@ export interface LinkProps {
 
 export const Link: React.FC<LinkProps> = ({ href, text, active = false }) => {
   return (
-    <a
+    <LinK
       href={href}
-      className={`text-xl text- hover:text- hover:underline duration-250 visited:text-purple-600 active:text-black`}
+      color={active ? "primary.500" : "secondary.500"}
+      fontSize="lg"
+      _hover={{color: "primary.500", textDecor: "underline"}}
     >
       {text.toUpperCase()}
-    </a>
+    </LinK>
   )
 }

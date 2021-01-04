@@ -4,6 +4,7 @@ import facebook from '../../static/images/facebook.svg'
 import instagram from '../../static/images/instagram.svg'
 import youtube from '../../static/images/youtube.svg'
 import linkedin from '../../static/images/linkedin.svg'
+import { Link, Image } from '@chakra-ui/react'
 
 export interface SocialMediaBadgeProps {
   /**
@@ -18,7 +19,7 @@ export interface SocialMediaBadgeProps {
 
 export const SocialMediaBadge: React.FC<SocialMediaBadgeProps> = ({
   option,
-  href
+  href,
 }) => {
   let img = ''
   if (option === 'twitter') {
@@ -33,8 +34,8 @@ export const SocialMediaBadge: React.FC<SocialMediaBadgeProps> = ({
     img = linkedin
   }
   return (
-    <a href={href} >
-      <img className="w-16 h-16" src={img} alt={option} />
-    </a>
+    <Link href={href}>
+      <Image w="50px" src={img} alt={option} />
+    </Link>
   )
 }
