@@ -1,15 +1,43 @@
 import React from 'react'
-import {
-  Box,
-} from "@chakra-ui/react"
 
 export interface ButtonProps {
   /**
-   * Prop1
+   * Button lable
    */
-  prop1: string
+  label: string
+  /**
+   * What background color to use
+   */
+  mode?: 'primary' | 'secondary' | 'inactive' | undefined
+  /**
+   * Click handler
+   */
+  onClick: () => void
 }
 
-export const Button: React.FC<ButtonProps> = ({ prop1 }) => {
-  return <Box bg="red.400" p="10px">Test1</Box>
+export const Button: React.FC<ButtonProps> = ({ label, onClick, mode }) => {
+  let COLOR: string = ''
+  if (mode === 'primary' || mode === undefined) {
+    COLOR = "a"
+  } else if (mode === 'secondary') {
+    COLOR = "a"
+  } else if (mode === 'inactive') {
+    COLOR = 'gray'
+  }
+  const BASE_STYLE: string = `bg-${COLOR}-600 rounded-lg p-3 shadow-lg\
+                              focus:outline-none focus:ring focus:ring-offset-2\
+                              focus:ring-${COLOR}-400`
+  const HOVER_STYLE: string = `transition duration-500 transform\
+                              hover:-translate-y-1 hover:shadow-xl\
+                              hover:bg-${COLOR}-400`
+  const STYLE = `${BASE_STYLE} ${mode === 'inactive' ? '' : HOVER_STYLE}`
+  return (
+    <button
+      className={STYLE}
+      onClick={onClick}
+      disabled={mode === 'inactive' ? true : false}
+    >
+      <b>{label}</b>
+    </button>
+  )
 }
