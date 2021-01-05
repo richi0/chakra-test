@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '@chakra-ui/react'
 
 export interface CustomButtonProps {
   /**
@@ -15,29 +16,18 @@ export interface CustomButtonProps {
   onClick: () => void
 }
 
-export const CustomButton: React.FC<CustomButtonProps> = ({ label, onClick, mode }) => {
-  let COLOR: string = ''
-  if (mode === 'primary' || mode === undefined) {
-    COLOR = "a"
-  } else if (mode === 'secondary') {
-    COLOR = "a"
-  } else if (mode === 'inactive') {
-    COLOR = 'gray'
-  }
-  const BASE_STYLE: string = `bg-${COLOR}-600 rounded-lg p-3 shadow-lg\
-                              focus:outline-none focus:ring focus:ring-offset-2\
-                              focus:ring-${COLOR}-400`
-  const HOVER_STYLE: string = `transition duration-500 transform\
-                              hover:-translate-y-1 hover:shadow-xl\
-                              hover:bg-${COLOR}-400`
-  const STYLE = `${BASE_STYLE} ${mode === 'inactive' ? '' : HOVER_STYLE}`
+export const CustomButton: React.FC<CustomButtonProps> = ({
+  label,
+  onClick,
+  mode,
+}) => {
   return (
-    <button
-      className={STYLE}
+    <Button
       onClick={onClick}
-      disabled={mode === 'inactive' ? true : false}
+      isDisabled={mode === 'inactive' ? true : false}
+      bg={mode === 'primary' ? 'primary.500' : 'secondary.500'}
     >
       <b>{label}</b>
-    </button>
+    </Button>
   )
 }

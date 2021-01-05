@@ -1,4 +1,5 @@
 import React from 'react'
+import { Box, Center, Flex, Image, SimpleGrid, Spacer, Text } from '@chakra-ui/react'
 import CustomButton from '../customButton'
 
 export interface HorizontalCardProps {
@@ -27,19 +28,20 @@ export const HorizontalCard: React.FC<HorizontalCardProps> = ({
   right = false,
 }) => {
   return (
-    <div className="sm:grid sm:grid-cols-2 shadow-lg">
-      <div className={`${right ? 'order-1' : 'order-0'} flex flex-wrap justify-center content-center`}>
-        <img className="sm:object-scale-down max-h-72" src={img} alt={title} />
-      </div>
-      <div className="p-3 flex flex-col">
-        <div className="mb-auto">
-          <div className={`text-2xl text- mb-3`}>{title}</div>
-          <div>{text}</div>
-        </div>
-        <div className="mt-2">
-          <CustomButton label="Learn more" onClick={() => console.log('a')} />
-        </div>
-      </div>
-    </div>
+    <SimpleGrid  columns={[1, 1, 2]} gap="20px" shadow="lg">
+      <Center order={right ? 1 : 0}>
+        <Image maxH="300px" objectFit="scale-down" src={img} alt={title} />
+      </Center>
+      <Flex direction="column" p="20px">
+        <Box my="auto">
+          <Text fontSize="lg" fontWeight="bold">{title}</Text>
+          <Text fontSize="md">{text}</Text>
+        </Box>
+        <Spacer />
+        <Box mt="10px">
+          <CustomButton label="Learn more" mode="primary" onClick={() => console.log('a')} />
+        </Box>
+      </Flex>
+    </SimpleGrid>
   )
 }

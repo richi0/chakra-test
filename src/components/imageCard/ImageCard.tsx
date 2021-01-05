@@ -60,10 +60,10 @@ export const ImageCard: React.FC<ImageCardProps> = ({
           textAlign="center"
           bg="primary.500"
           opacity={0}
-          _hover={{ opacity: 0.8 }}
+          _hover={{ opacity: 0.9 }}
           transitionDuration="1s"
         >
-          <Text color="white" fontWeight="bold" fontSize="lg">
+          <Text color="black" fontWeight="bold" fontSize="lg">
             {text}
           </Text>
         </Center>
