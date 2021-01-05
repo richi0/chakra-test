@@ -1,4 +1,6 @@
 import React from 'react'
+import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons'
+import { Box, Center, Flex, SimpleGrid } from '@chakra-ui/react'
 import styles from './CardBrowser.module.css'
 
 export interface CardBrowserProps {
@@ -22,7 +24,7 @@ export class CardBrowser extends React.Component<
     pos: 0,
   }
 
-  browserRef = React.createRef<HTMLDivElement>();
+  browserRef = React.createRef<HTMLDivElement>()
   cardRef = this.props.cards.map(() => React.createRef<HTMLDivElement>())
 
   changeCard(n: number) {
@@ -58,78 +60,82 @@ export class CardBrowser extends React.Component<
 
   render() {
     return (
-      <div>
-        <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-5 relative">
+      <Box>
+        <SimpleGrid
+          position="relative"
+          display={['none', 'none', 'grid']}
+          columns={[1, 1, 2, 2, 3]}
+          gap="30px"
+          justifyItems="center"
+        >
           {this.props.cards.map((card, key) => (
-            <div key={key}>{card}</div>
+            <Box key={key}>{card}</Box>
           ))}
-        </div>
-        <div className={`sm:hidden ${styles.browser}`}>
-          <div
-            className="flex content-center relative gap-20 duration-500 transform"
-            ref={this.browserRef}
-          >
+        </SimpleGrid>
+        <Box
+          display={['block', 'block', 'none']}
+          className={`${styles.browser}`}
+        >
+          <Flex dir="row" transitionDuration="0.5s" ref={this.browserRef}>
             {this.props.cards.map((card, index) => (
-              <div
-                key={index}
-                className="min-w-full flex flex-wrap justify-center content-center"
-                ref={this.cardRef[index]}
-              >
-                {card}
-              </div>
+              <Box key={index} ref={this.cardRef[index]}>
+                <Center width="100vw">{card}</Center>
+              </Box>
             ))}
-          </div>
-          <div className="flex flex-wrap justify-between content-center mt-8">
-            <button
-              className={`focus:outline-none transition duration-500 transform  ${
-                this.state.cardNumber === 0 ? '' : 'hover:-translate-x-2'
-              }`}
+          </Flex>
+          <Flex justifyContent="space-between" mt="20px">
+            <Box
+              as="button"
+              ml="10px"
+              _focus={{ outline: 'none' }}
+              transitionDuration="0.5s"
+              _hover={
+                this.state.cardNumber === 0
+                  ? { cursor: 'default' }
+                  : { transform: 'translateX(-5px)' }
+              }
               onClick={() => this.changeCard(-1)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
-                viewBox="-25 -25 50 50"
-                className={`text-black stroke-current  ${
-                  this.state.cardNumber === 0
-                    ? 'text-gray-300'
-                    : `hover:text-`
-                }`}
-              >
-                <line x1="-10" y1="0" x2="10" y2="-20" />
-                <line x1="-10" y1="0" x2="10" y2="20" />
-              </svg>
-            </button>
-            <div className="flex flex-wrap justify-center content-center">{`${
-              this.state.cardNumber + 1
-            } of ${this.props.cards.length}`}</div>
-            <button
-              className={`focus:outline-none transition duration-500 transform  ${
-                this.props.cards.length - 1 === this.state.cardNumber
-                  ? ''
-                  : 'hover:translate-x-2'
-              }`}
+              <ArrowLeftIcon
+                boxSize="30px"
+                color={this.state.cardNumber === 0 ? 'gray.400' : 'black'}
+                _hover={
+                  this.state.cardNumber === 0 ? {} : { color: 'primary.500' }
+                }
+              />
+            </Box>
+            <Center>{`${this.state.cardNumber + 1} of ${
+              this.props.cards.length
+            }`}</Center>
+            <Box
+              as="button"
+              mr="10px"
+              _focus={{ outline: 'none' }}
+              transitionDuration="0.5s"
+              _hover={
+                this.state.cardNumber === this.props.cards.length - 1
+                  ? { cursor: 'default' }
+                  : { transform: 'translateX(5px)' }
+              }
               onClick={() => this.changeCard(1)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
-                viewBox="-25 -25 50 50"
-                className={`text-black stroke-current  ${
-                  this.props.cards.length - 1 === this.state.cardNumber
-                    ? 'text-gray-300'
-                    : `hover:text-`
-                }`}
-              >
-                <line x1="10" y1="0" x2="-10" y2="-20" />
-                <line x1="10" y1="0" x2="-10" y2="20" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
+              <ArrowRightIcon
+                boxSize="30px"
+                color={
+                  this.state.cardNumber === this.props.cards.length - 1
+                    ? 'gray.400'
+                    : 'black'
+                }
+                _hover={
+                  this.state.cardNumber === this.props.cards.length - 1
+                    ? {}
+                    : { color: 'primary.500' }
+                }
+              />
+            </Box>
+          </Flex>
+        </Box>
+      </Box>
     )
   }
 }
