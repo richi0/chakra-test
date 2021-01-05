@@ -10,7 +10,6 @@ import {
   extendTheme
 } from '@chakra-ui/react'
 import { Logo } from './Logo'
-import Button from './components/Button'
 
 const theme = extendTheme({
   colors: {
@@ -59,7 +58,6 @@ export const App = () => (
           </Link>
         </VStack>
       </Grid>
-      <Button prop1="Richie" />
     </Box>
   </ChakraProvider>
 )

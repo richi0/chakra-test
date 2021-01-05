@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { defaultMaxListeners } from 'stream'
+import React from 'react'
 import { BurgerMenu } from './BurgerMenu'
 
 test('renders button label', () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../button'
+import CustomButton from '../customButton'
 
 export interface HorizontalCardProps {
   /**
@@ -37,7 +37,7 @@ export const HorizontalCard: React.FC<HorizontalCardProps> = ({
           <div>{text}</div>
         </div>
         <div className="mt-2">
-          <Button label="Learn more" onClick={() => console.log('a')} />
+          <CustomButton label="Learn more" onClick={() => console.log('a')} />
         </div>
       </div>
     </div>

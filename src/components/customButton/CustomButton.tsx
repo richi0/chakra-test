@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface ButtonProps {
+export interface CustomButtonProps {
   /**
    * Button lable
    */
@@ -15,7 +15,7 @@ export interface ButtonProps {
   onClick: () => void
 }
 
-export const Button: React.FC<ButtonProps> = ({ label, onClick, mode }) => {
+export const CustomButton: React.FC<CustomButtonProps> = ({ label, onClick, mode }) => {
   let COLOR: string = ''
   if (mode === 'primary' || mode === undefined) {
     COLOR = "a"
