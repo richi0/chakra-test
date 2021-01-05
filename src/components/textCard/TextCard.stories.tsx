@@ -24,20 +24,20 @@ Vernor Vinge in his 1993 essay "The Coming Technological Singularity."`
 export const CardWithLink = Template.bind({})
 CardWithLink.args = {
   title: title,
-  body: body,
+  text: body,
   href: '/',
 }
 
 export const CardWithoutLink = Template.bind({})
 CardWithoutLink.args = {
   title: title,
-  body: body,
+  text: body,
 }
 
 export const CardWithImage = Template.bind({})
 CardWithImage.args = {
   title: title,
-  body: body,
+  text: body,
   img: img,
   href: '/',
 }
@@ -45,7 +45,7 @@ CardWithImage.args = {
 export const CardWithSmallImage = Template.bind({})
 CardWithSmallImage.args = {
   title: title,
-  body: body,
+  text: body,
   img: small_img,
   href: '/',
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, Center, Image, Text, VStack } from '@chakra-ui/react'
 
 export interface TextCardProps {
   /**
@@ -12,7 +13,7 @@ export interface TextCardProps {
   /**
    * Main text of the card
    */
-  body: string
+  text: string
   /**
    * Url to the details
    */
@@ -22,28 +23,43 @@ export interface TextCardProps {
 export const TextCard: React.FC<TextCardProps> = ({
   title,
   img,
-  body,
+  text,
   href,
 }) => {
-  const hover = 'hover:shadow-xl duration-500 transform hover:-translate-y-1'
-  const base = (
-    <div
-      className={`min-w-min min-h-full max-w-md shadow-md bg-white p-5 ${
-        href ? hover : ''
-      }`}
+  let base = (
+    <VStack
+      spacing="20px"
+      shadow="lg"
+      p="20px"
+      _hover={
+        href
+          ? {
+              transform: 'translateY(-5px)',
+              transitionDuration: '0.5s',
+              shadow: 'xl',
+            }
+          : {}
+      }
     >
-      <div className={`text-3xl mb-10 underline`}>
-        {title}
-      </div>
-      {img ? (
-          <img className="mb-3 mx-auto" src={img} alt=""/>
-      ) : null}
-      <div>{body}</div>
-    </div>
+      <Center textAlign="center">
+        <Text fontSize="lg" fontWeight="bold">
+          {title}
+        </Text>
+      </Center>
+      <Center>{img ? <Image src={img} alt="img" /> : ''}</Center>
+      <Center>
+        <Text>{text}</Text>
+      </Center>
+    </VStack>
   )
-  if (href) {
-    return <a href={href}>{base}</a>
-  } else {
-    return base
-  }
+
+  base = href ? (
+    <Link href={href} _hover={{ textDecor: 'none' }}>
+      {base}
+    </Link>
+  ) : (
+    base
+  )
+
+  return base
 }
