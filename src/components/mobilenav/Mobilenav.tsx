@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, LinkProps } from '../link/Link'
+import { CustomLink, CustomLinkProps } from '../customLink/CustomLink'
 
 export interface MobilenavProps {
   /**
@@ -9,7 +9,7 @@ export interface MobilenavProps {
   /**
    * Navigation links
    */
-  links: LinkProps[]
+  links: CustomLinkProps[]
   /**
    * Toggle between show the menu on and off
    */
@@ -55,7 +55,7 @@ export const Mobilenav: React.FC<MobilenavProps> = ({
       </div>
       {links.map((link, key) => (
         <div className="text-center py-3 w-10/12 container mx-auto" key={key}>
-          <Link href={link.href} text={link.text} />
+          <CustomLink href={link.href} text={link.text} />
           <hr className="border-t-2 border-gray-500 mt-2" />
         </div>
       ))}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, LinkProps } from '../link/Link'
+import { CustomLink, CustomLinkProps } from '../customLink/CustomLink'
 import BurgerMenu from '../burgerMenu'
 import Mobilenav from '../mobilenav'
 
@@ -15,7 +15,7 @@ export interface NavbarProps {
   /**
    * Navigation links
    */
-  links: LinkProps[]
+  links: CustomLinkProps[]
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ logo, brand, links }) => {
@@ -33,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ logo, brand, links }) => {
       <div className="text-lg sm:text-3xl mr-auto">{brand}</div>
       {links.map((link, key) => (
         <div className="hidden sm:block" key={key}>
-          <Link
+          <CustomLink
             text={link.text}
             href={link.href}
             active={link.active ? true : false}

@@ -1,7 +1,7 @@
-import { Link as LinK } from '@chakra-ui/react'
+import { Link } from '@chakra-ui/react'
 import React from 'react'
 
-export interface LinkProps {
+export interface CustomLinkProps {
   /**
    * Text of the link
    */
@@ -16,15 +16,15 @@ export interface LinkProps {
   active?: boolean
 }
 
-export const Link: React.FC<LinkProps> = ({ href, text, active = false }) => {
+export const CustomLink: React.FC<CustomLinkProps> = ({ href, text, active = false }) => {
   return (
-    <LinK
+    <Link
       href={href}
       color={active ? "primary.500" : "secondary.500"}
       fontSize="lg"
       _hover={{color: "primary.500", textDecor: "underline"}}
     >
       {text.toUpperCase()}
-    </LinK>
+    </Link>
   )
 }

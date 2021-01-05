@@ -1,8 +1,9 @@
 import { render } from '@testing-library/react'
-import { Link } from './Link'
+import React from 'react'
+import { CustomLink } from './CustomLink'
 
 test('renders button label', () => {
-  const {container} = render(<Link href="www.test1.ch" text="test1" />)
+  const {container} = render(<CustomLink href="www.test1.ch" text="test1" />)
   const a = container.querySelector('a')
   expect(a).toBeInTheDocument()
 })
