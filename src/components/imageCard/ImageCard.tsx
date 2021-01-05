@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Text, Center, Image, Link, Box } from '@chakra-ui/react'
 
 export interface ImageCardProps {
   /**
@@ -34,24 +35,39 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   }
 
   return (
-      <a
-        href={href}
-        onMouseEnter={() => enter()}
-        onMouseLeave={() => leave()}
-        className="w-60 h-40 relative flex flex-wrap justify-center content-center overflow-hidden"
-      >
-        <img className="object-cover" src={img} alt="img" />
-        <div
-          style={{ display: style }}
-          className="w-full h-full absolute top-0 left-0 flex flex-wrap justify-center content-center"
+    <Link href={href} onMouseEnter={() => enter()} onMouseLeave={() => leave()}>
+      <Box w="300px" h="200px" overflow="hidden" display="inline-block" position="relative">
+        <Image objectFit="cover" w="100%" h="100%" src={img} alt="img" />
+        <Center
+          display={style === 'none' ? 'none' : 'flex'}
+          w="100%"
+          h="100%"
+          position="absolute"
+          top="0px"
+          left="0px"
+          textAlign="center"
         >
-          <div className="text-xl text-white text-center">{title}</div>
-        </div>
-        <div
-          className={`w-full h-full opacity-0 duration-500 hover:opacity-80 absolute top-0 left-0 bg- flex flex-wrap justify-center content-center p-2`}
+          <Text color="white" fontSize="lg">
+            {title}
+          </Text>
+        </Center>
+        <Center
+          w="100%"
+          h="100%"
+          position="absolute"
+          top="0px"
+          left="0px"
+          textAlign="center"
+          bg="primary.500"
+          opacity={0}
+          _hover={{ opacity: 0.8 }}
+          transitionDuration="1s"
         >
-          <div className="text-xl text-white text-center">{text}</div>
-        </div>
-      </a>
+          <Text color="white" fontWeight="bold" fontSize="lg">
+            {text}
+          </Text>
+        </Center>
+      </Box>
+    </Link>
   )
 }
