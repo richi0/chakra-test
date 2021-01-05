@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { Mobilenav } from './Mobilenav'
 
 test('renders button label', () => {
-  const { container } = render(
+  render(
     <Mobilenav
       show={true}
       links={[

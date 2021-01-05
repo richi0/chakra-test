@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { Box, Center, CloseButton, Divider, Flex } from '@chakra-ui/react'
 import { CustomLink, CustomLinkProps } from '../customLink/CustomLink'
+import styles from './Mobilenav.module.css'
 
 export interface MobilenavProps {
   /**
@@ -21,44 +23,42 @@ export const Mobilenav: React.FC<MobilenavProps> = ({
   links,
   toggleShowMenu,
 }) => {
-  const [style, setStyle] = useState({ top: '-100%' })
+  const [style, setStyle] = useState(styles.hidden)
 
   useEffect(() => {
     if (show) {
-      setStyle({ top: '0px' })
+      setStyle(styles.shown)
     } else {
-      setStyle({ top: '-100%' })
+      setStyle(styles.hidden)
     }
   }, [show])
 
   return (
-    <div
-      style={style}
-      className={`w-full z-50 bg-gray-100 absolute top-0 left-0 duration-700`}
+    <Flex
+      w="full"
+      direction="column"
+      zIndex={50}
+      bg="gray.100"
+      className={`${style} ${styles.menu}`}
     >
-      <div className="w-full text-right">
-        <button
-          className="text-5xl m-4 focus:outline-none"
+      <Flex direction="row-reverse">
+        <CloseButton
+          boxSize="40px"
           onClick={toggleShowMenu}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="50"
-            height="50"
-            viewBox="-25 -25 50 50"
-          >
-            <circle cx="0" cy="0" r="20" stroke="gray" fill="#F3F4F6" />
-            <line x1="-10" y1="-10" x2="10" y2="10" stroke="gray" />
-            <line x1="-10" y1="10" x2="10" y2="-10" stroke="gray" />
-          </svg>
-        </button>
-      </div>
+          _focus={{ outline: 'none' }}
+          _hover={{ color: 'primary.500' }}
+        />
+      </Flex>
       {links.map((link, key) => (
-        <div className="text-center py-3 w-10/12 container mx-auto" key={key}>
-          <CustomLink href={link.href} text={link.text} />
-          <hr className="border-t-2 border-gray-500 mt-2" />
-        </div>
+        <Box key={key}>
+          <Center>
+            <CustomLink href={link.href} text={link.text} />
+          </Center>
+          <Center>
+            <Divider my="10px" borderColor="black" w={0.8} />
+          </Center>
+        </Box>
       ))}
-    </div>
+    </Flex>
   )
 }

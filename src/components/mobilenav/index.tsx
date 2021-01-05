@@ -1,3 +1,3 @@
-import {Mobilenav} from "./Mobilenav"
+import { Mobilenav } from './Mobilenav'
 
 export default Mobilenav

@@ -1,0 +1,13 @@
+.menu {
+    transition-duration: 500ms;
+}
+.shown {
+    background-color: red;
+    transition:ease-in();
+    transform: translateY(0);
+}
+.hidden {
+    background-color: blue;
+    transition:ease-in();
+    transform: translateY(-200%);
+}
