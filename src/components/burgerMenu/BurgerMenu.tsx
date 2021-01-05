@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Box } from '@chakra-ui/react'
+import { HamburgerIcon } from '@chakra-ui/icons'
 import styles from './BurgerMenu.module.css'
 
 export interface BurgerMenuProps {
@@ -19,23 +21,18 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({ onClick }) => {
     console.log('rotate')
   }
   return (
-    <button
-      className={`focus:outline-none ${spin} h-auto`}
+    <Box
+      className={`${spin}`}
       onClick={() => {
         rotate()
       }}
+      boxSize={50}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="50"
-        height="50"
-        viewBox="0 0 50 30"
-        className={`text-black stroke-current hover:stroke-current hover:text-`}
-      >
-        <line x1="0" y1="0" x2="50" y2="0" strokeWidth="2" />
-        <line x1="0" y1="15" x2="50" y2="15" strokeWidth="2" />
-        <line x1="0" y1="30" x2="50" y2="30" strokeWidth="2" />
-      </svg>
-    </button>
+      <HamburgerIcon
+        boxSize={50}
+        color="secondary.500"
+        _hover={{ color: 'primary.500' }}
+      />
+    </Box>
   )
 }
