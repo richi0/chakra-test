@@ -30,7 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({ logo, brand, links }) => {
     <Box>
       <HStack spacing="20px" bg="gray.100" p="10px" align="center">
         <Link href="/">
-          <Image w="80px" src={logo} alt="logo" />
+          <Image w="50px" src={logo} alt="logo" />
         </Link>
         <Text fontSize="lg">{brand}</Text>
         <Spacer />

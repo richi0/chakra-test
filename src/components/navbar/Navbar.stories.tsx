@@ -13,7 +13,7 @@ const Template: Story<NavbarProps> = (args) => <Navbar {...args} />
 export const Navbar_1 = Template.bind({})
 Navbar_1.args = {
   logo: logo,
-  brand: 'Alta Engineering',
+  brand: 'Random Engineering',
   links: [
     { href: '/', text: 'Products' },
     { href: '/', text: 'About' },

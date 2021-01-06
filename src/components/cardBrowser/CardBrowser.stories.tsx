@@ -47,11 +47,11 @@ const longText = `Sir Timothy John Berners-Lee (born 8 June 1955), also known as
                   via the Internet in mid-November.`
 
 const textCards = [
-  <TextCard title="Title 1" body={longText} href="/" />,
-  <TextCard title="Title 1" body={longText} href="/" />,
-  <TextCard title="Title 1" body="This is the body text" href="/" img={img1} />,
-  <TextCard title="Title 1" body={longText} href="/" img={img1} />,
-  <TextCard title="Title 1" body="This is the body text" href="/" img={img1} />,
+  <TextCard title="Title 1" text={longText} href="/" />,
+  <TextCard title="Title 1" text={longText} href="/" />,
+  <TextCard title="Title 1" text="This is the body text" href="/" img={img1} />,
+  <TextCard title="Title 1" text={longText} href="/" img={img1} />,
+  <TextCard title="Title 1" text="This is the body text" href="/" img={img1} />,
 ]
 
 export const CardBrowser_2 = Template.bind({})
