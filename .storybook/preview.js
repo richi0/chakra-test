@@ -1,5 +1,6 @@
 import { addDecorator } from '@storybook/react'
 import { ChakraProvider, extendTheme, CSSReset } from '@chakra-ui/react'
+import '../src/App.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

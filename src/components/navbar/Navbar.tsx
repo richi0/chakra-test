@@ -27,12 +27,14 @@ export const Navbar: React.FC<NavbarProps> = ({ logo, brand, links }) => {
   }
 
   return (
-    <Box>
+    <Box h="auto" position="relative">
       <HStack spacing="20px" bg="gray.100" p="10px" align="center">
         <Link href="/">
-          <Image w="50px" src={logo} alt="logo" />
+          <Box boxSize="50px">
+            <Image w="100%" src={logo} alt="logo" />
+          </Box>
         </Link>
-        <Text fontSize="lg">{brand}</Text>
+        <Text fontSize={['md', 'lg']}>{brand}</Text>
         <Spacer />
         {links.map((link, key) => (
           <Box display={['none', 'none', 'flex']} key={key}>
@@ -47,7 +49,7 @@ export const Navbar: React.FC<NavbarProps> = ({ logo, brand, links }) => {
           <BurgerMenu onClick={() => clickBurger()} />
         </Box>
       </HStack>
-      <Box position="relative">
+      <Box w="100%" position="absolute" top="100%" left="0px">
         <Mobilenav
           show={showMobileNav}
           links={links}

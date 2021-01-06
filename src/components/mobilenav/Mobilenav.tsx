@@ -52,7 +52,7 @@
         {links.map((link, key) => (
           <Box key={key}>
             <Center>
-              <CustomLink href={link.href} text={link.text} />
+              <CustomLink href={link.href} text={link.text} active={link.active} />
             </Center>
             <Center>
               <Divider my="10px" borderColor="black" w={0.8} />
