@@ -49,7 +49,7 @@ export const Navbar: React.FC<NavbarProps> = ({ logo, brand, links }) => {
           <BurgerMenu onClick={() => clickBurger()} />
         </Box>
       </HStack>
-      <Box w="100%" position="absolute" top="100%" left="0px">
+      <Box w="100%" position="absolute" top="100%" left="0px" zIndex={500}>
         <Mobilenav
           show={showMobileNav}
           links={links}

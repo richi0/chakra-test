@@ -10,7 +10,7 @@ export interface SocialMediaBadgeProps {
   /**
    * Choose the type of social media
    */
-  option: 'twitter' | 'facebook' | 'instagram' | 'youtube' | 'linkedin'
+  option: 'twitter' | 'facebook' | 'instagram' | 'youtube' | 'linkedin' | string
   /**
    * Link to your social media page
    */

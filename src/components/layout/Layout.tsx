@@ -11,10 +11,10 @@ export interface LayoutProps {
   activeLink: string
 }
 
-const links = [
+export const links = [
   {
-    text: 'Products',
-    href: '/products',
+    text: 'Home',
+    href: '/home',
   },
   {
     text: 'Projects',

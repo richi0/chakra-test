@@ -37,7 +37,6 @@
       <Box
         w="full"
         direction="column"
-        zIndex={50}
         bg="gray.100"
         className={`${style} ${styles.menu}`}
       >
