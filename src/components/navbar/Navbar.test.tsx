@@ -1,5 +1,6 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { render } from '../../test-utils'
 import { Navbar } from './Navbar'
 import logo from '../../static/images/logo.svg'
 

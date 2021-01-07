@@ -1,12 +1,14 @@
 import React from 'react'
+import Layout from '../layout'
+import img2 from '../../static/images/p2.jpg'
 
-export interface ProjectsProps {
-  /**
-   * Prop1
-   */
-  prop1: string
-}
-
-export const Projects: React.FC<ProjectsProps> = ({ prop1 }) => {
-  return <div>{prop1}</div>
+export const Projects: React.FC<{}> = () => {
+  return (
+    <Layout
+      activeLink="Projects"
+      titleImage={img2}
+      title="Some of our Projects"
+      text="Delivering results, reliability, and rock solid dependability."
+    ></Layout>
+  )
 }

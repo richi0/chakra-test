@@ -1,5 +1,6 @@
-import { Link } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import React from 'react'
+import { Link as RouterLink } from 'react-router-dom'
 
 export interface CustomLinkProps {
   /**
@@ -16,15 +17,21 @@ export interface CustomLinkProps {
   active?: boolean
 }
 
-export const CustomLink: React.FC<CustomLinkProps> = ({ href, text, active = false }) => {
+export const CustomLink: React.FC<CustomLinkProps> = ({
+  href,
+  text,
+  active = false,
+}) => {
   return (
-    <Link
-      href={href}
-      color={active ? "primary.500" : "secondary.500"}
-      fontSize="lg"
-      _hover={{color: "primary.500", textDecor: "underline"}}
-    >
-      {text.toUpperCase()}
-    </Link>
+    <RouterLink to={href}>
+      <Box
+        href={href}
+        color={active ? 'primary.500' : 'secondary.500'}
+        fontSize="lg"
+        _hover={{ color: 'primary.500', textDecor: 'underline' }}
+      >
+        {text.toUpperCase()}
+      </Box>
+    </RouterLink>
   )
 }

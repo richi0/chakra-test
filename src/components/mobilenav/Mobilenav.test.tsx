@@ -1,5 +1,6 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { render } from '../../test-utils'
 import { Mobilenav } from './Mobilenav'
 
 test('renders button label', () => {
@@ -11,7 +12,7 @@ test('renders button label', () => {
         { href: 'hello', text: 'yes' },
         { href: 'hello', text: 'yes' },
       ]}
-      toggleShowMenu={() => console.log("aa")}
+      toggleShowMenu={() => console.log('aa')}
     />,
   )
   screen.findByText('hello').then((text) => expect(text).toBeInTheDocument())
