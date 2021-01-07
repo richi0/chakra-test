@@ -11,5 +11,5 @@ const Template: Story<FooterProps> = (args) => <Footer {...args} />
 
 export const Footer_1 = Template.bind({})
 Footer_1.args = {
-  prop1: "prop1"
+  links: [{ href: '/', text: 'HOME' }],
 }

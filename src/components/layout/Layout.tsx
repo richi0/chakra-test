@@ -11,34 +11,33 @@ export interface LayoutProps {
   activeLink: string
 }
 
-export const links = [
-  {
-    text: 'Home',
-    href: '/home',
-  },
-  {
-    text: 'Projects',
-    href: '/projects',
-  },
-  {
-    text: 'Customers',
-    href: '/Customers',
-  },
-  {
-    text: 'Carrer',
-    href: '/carrer',
-  },
-  {
-    text: 'About',
-    href: '/about',
-  },
-  {
-    text: 'Contact',
-    href: '/contact',
-  },
-]
-
 export const Layout: React.FC<LayoutProps> = ({ activeLink, children }) => {
+  const links = [
+    {
+      text: 'Home',
+      href: '/home',
+    },
+    {
+      text: 'Projects',
+      href: '/projects',
+    },
+    {
+      text: 'Customers',
+      href: '/Customers',
+    },
+    {
+      text: 'Carrer',
+      href: '/carrer',
+    },
+    {
+      text: 'About',
+      href: '/about',
+    },
+    {
+      text: 'Contact',
+      href: '/contact',
+    },
+  ]
   return (
     <Flex w="100%" h="100%" direction="column">
       <Navbar
@@ -52,7 +51,7 @@ export const Layout: React.FC<LayoutProps> = ({ activeLink, children }) => {
       />
       <Box>{children}</Box>
       <Spacer />
-      <Footer prop1="aaa" />
+      <Footer links={links} />
     </Flex>
   )
 }

@@ -10,19 +10,19 @@ import {
   WrapItem,
   Center,
 } from '@chakra-ui/react'
-import { links } from '../layout/Layout'
 import SocialMediaBadge from '../socialMediaBadge'
+import { CustomLinkProps } from '../customLink/CustomLink'
 
 export interface FooterProps {
   /**
-   * Prop1
+   * Navigation links
    */
-  prop1: string
+  links: CustomLinkProps[]
 }
 
 const social = ['facebook', 'instagram', 'twitter', 'youtube', 'linkedin']
 
-export const Footer: React.FC<FooterProps> = ({ prop1 }) => {
+export const Footer: React.FC<FooterProps> = ({ links }) => {
   return (
     <SimpleGrid p="20px" gap="20px" columns={[1, 1, 3]} w="100%" bg="gray.100">
       <Box textAlign="center">

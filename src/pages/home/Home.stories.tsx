@@ -10,5 +10,4 @@ export default {
 const Template: Story<{}> = (args) => <Home {...args} />
 
 export const Home_1 = Template.bind({})
-Home_1.args = {
-}
+Home_1.args = {}

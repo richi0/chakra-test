@@ -4,7 +4,7 @@ import logo from '../../static/images/logo.svg'
 import { Navbar, NavbarProps } from './Navbar'
 
 export default {
-  title: 'Components/Navigation',
+  title: 'Components/Navbar',
   component: Navbar,
 } as Meta
 

@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import { Mobilenav, MobilenavProps } from './Mobilenav'
 
 export default {
-  title: 'Components/Navigation',
+  title: 'Components/Mobilenav',
   component: Mobilenav,
 } as Meta
 
