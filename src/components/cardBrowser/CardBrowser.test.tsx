@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render } from '../../test-utils'
 import { CardBrowser } from './CardBrowser'
 import ImageCard from '../imageCard'
 import img from '../../static/images/cat1.jpg'
