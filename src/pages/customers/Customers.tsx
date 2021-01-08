@@ -1,7 +1,7 @@
 import React from 'react'
 import Section from '../../components/section'
 import Layout from '../layout'
-import img0 from '../../static/images/p3.jpg'
+import img0 from '../../static/images/p2.jpg'
 import TextCard from '../../components/textCard'
 import CardBrowser from '../../components/cardBrowser'
 
@@ -160,7 +160,7 @@ export const Customers: React.FC<{}> = () => {
       <Section title="Find out what our customers say about Random Engineering">
         <CardBrowser
           cards={customerData.map((card) => (
-            <TextCard img={card.img} title={card.title} text={card.text} />
+            <TextCard img={card.img} title={card.title} text={card.text} href="/"/>
           ))}
         />
       </Section>

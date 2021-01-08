@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../layout'
-import img0 from '../../static/images/p2.jpg'
+import img0 from '../../static/images/p3.jpg'
 import img1 from '../../static/images/pro1.jpg'
 import img2 from '../../static/images/pro2.jpg'
 import img3 from '../../static/images/pro3.jpg'
