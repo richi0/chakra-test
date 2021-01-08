@@ -1,15 +1,13 @@
 import React from 'react'
 import {
   Box,
-  Center,
   Flex,
   Image,
-  Link,
-  SimpleGrid,
   Spacer,
   Text,
 } from '@chakra-ui/react'
 import CustomButton from '../customButton'
+import { Link as RouterLink } from 'react-router-dom'
 
 export interface HorizontalCardProps {
   /**
@@ -42,16 +40,21 @@ export const HorizontalCard: React.FC<HorizontalCardProps> = ({
   href,
 }) => {
   return (
-    <SimpleGrid
-      columns={[1, 1, 2]}
-      gap="20px"
+    <Flex
       border="1px"
       borderColor="primary.500"
+      direction={['column', 'column', 'row']}
     >
-      <Center order={right ? 1 : 0}>
-        <Image maxH="300px" objectFit="scale-down" src={img} alt={title} />
-      </Center>
-      <Flex direction="column" p="20px">
+      <Flex
+        order={right ? 1 : 0}
+        w={['100%', '100%', '50%']}
+        justifyContent={['center', 'center', right ? 'flex-end' : 'flex-start']}
+        minW="40%"
+        alignItems="center"
+      >
+        <Image src={img} alt={title} maxH={["auto", "auto", "300px"]} />
+      </Flex>
+      <Flex maxW={['100%', '100%', '100%']} direction="column" p="20px">
         <Box my="auto">
           <Text fontSize="lg" fontWeight="bold">
             {title}
@@ -60,19 +63,19 @@ export const HorizontalCard: React.FC<HorizontalCardProps> = ({
         </Box>
         <Spacer />
         {href ? (
-          <Box mt="10px">
-            <Link href={href}>
+          <Flex mt="10px" alignSelf={right? "flex-start": "flex-end"}>
+            <RouterLink to={href}>
               <CustomButton
                 label="Learn more"
                 mode="primary"
-                onClick={() => console.log('a')}
+                onClick={() => null}
               />
-            </Link>
-          </Box>
+            </RouterLink>
+          </Flex>
         ) : (
           ''
         )}
       </Flex>
-    </SimpleGrid>
+    </Flex>
   )
 }

@@ -10,7 +10,14 @@ export interface SectionProps {
 
 export const Section: React.FC<SectionProps> = ({ title, children }) => {
   return (
-    <Box as="section" m="20px" p="20px" shadow="xl">
+    <Box
+      as="section"
+      my="40px"
+      mx={['5px', '5px', '10px', 'auto']}
+      p={['5px', '5px', '10px', '20px']}
+      shadow="xl"
+      maxW="1000px"
+    >
       <Text
         fontSize="2xl"
         color="primary.500"
