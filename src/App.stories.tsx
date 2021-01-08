@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import { App } from './App'
 
 export default {
-  title: 'App/App',
+  title: 'App/Site',
   component: App,
 } as Meta
 

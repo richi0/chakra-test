@@ -1,9 +1,12 @@
 .browser {
-  overflow-x: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
 .browser::-webkit-scrollbar {
   display: none;
+}
+
+.flexElement {
+  flex: 0 0 100%;
 }

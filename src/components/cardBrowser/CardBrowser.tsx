@@ -1,6 +1,6 @@
 import React from 'react'
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons'
-import { Box, Center, Flex, SimpleGrid } from '@chakra-ui/react'
+import { Box, Center, Flex } from '@chakra-ui/react'
 import styles from './CardBrowser.module.css'
 
 export interface CardBrowserProps {
@@ -24,9 +24,23 @@ export class CardBrowser extends React.Component<
     pos: 0,
   }
 
-  browserRef = React.createRef<HTMLDivElement>()
   cardRef = this.props.cards.map(() => React.createRef<HTMLDivElement>())
 
+  /**
+   * Resets the translation if a user resizes
+   * the window. Otherwise the image scrolls
+   * and is not in the center anymore.
+   */
+  componentDidMount() {
+    window.addEventListener('resize', () => {
+      this.setState({ cardNumber: 0, pos: 0 })
+    })
+  }
+
+  /**
+   * Change the card number to the next higer or the next lower card
+   * if the card number is not on the top or bottom limit.
+   */
   changeCard(n: number) {
     if (n === 1 && this.state.cardNumber < this.props.cards.length - 1) {
       this.setState({ cardNumber: this.state.cardNumber + 1 }, () => {
@@ -40,19 +54,18 @@ export class CardBrowser extends React.Component<
     }
   }
 
+  /**
+   * Translate the imagebrowser to show the next image
+   */
   moveCard(n: number) {
     if (this.props.cards.length > 1) {
-      let browser = this.browserRef.current
       let card_0 = this.cardRef[0].current
       let card_1 = this.cardRef[1].current
-      if (card_0 && card_1 && browser) {
+      if (card_0 && card_1) {
         let diff = Math.abs(
           card_0.getBoundingClientRect().left -
             card_1.getBoundingClientRect().left,
         )
-        browser.style.transform = `translate(${
-          this.state.pos - diff * n
-        }px, 0px)`
         this.setState({ pos: -(diff * this.state.cardNumber) })
       }
     }
@@ -61,26 +74,41 @@ export class CardBrowser extends React.Component<
   render() {
     return (
       <Box>
-        <SimpleGrid
-          position="relative"
-          display={['none', 'none', 'grid']}
-          columns={[1, 1, 2, 2, 3]}
-          gap="30px"
-          justifyItems="center"
-        >
-          {this.props.cards.map((card, key) => (
-            <Box key={key}>{card}</Box>
-          ))}
-        </SimpleGrid>
+        <Center>
+          <Flex
+            display={['none', 'none', 'flex']}
+            wrap="wrap"
+            direction="row"
+            justifyContent="center"
+            justifyItems="center"
+            sx={{ gap: '30px' }}
+          >
+            {this.props.cards.map((card, key) => (
+              <Box key={key}>{card}</Box>
+            ))}
+          </Flex>
+        </Center>
         <Box
           display={['block', 'block', 'none']}
           className={`${styles.browser}`}
+          overflow="hidden"
+          w="100%"
         >
-          <Flex dir="row" transitionDuration="0.5s" ref={this.browserRef}>
+          <Flex
+            w="100%"
+            direction="row"
+            transitionDuration="0.5s"
+            transform={`translate(${this.state.pos}px, 0px)`}
+          >
             {this.props.cards.map((card, index) => (
-              <Box key={index} ref={this.cardRef[index]}>
-                <Center width="100vw">{card}</Center>
-              </Box>
+              <Center
+                mr="10px"
+                className={`${styles.flexElement}`}
+                key={index}
+                ref={this.cardRef[index]}
+              >
+                {card}
+              </Center>
             ))}
           </Flex>
           <Flex justifyContent="space-between" mt="20px">

@@ -17,7 +17,7 @@ export interface ImageCardProps {
   /**
    * Link to details
    */
-  href: string
+  href?: string
 }
 
 export const ImageCard: React.FC<ImageCardProps> = ({
@@ -35,7 +35,7 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   }
 
   return (
-    <Link href={href} onMouseEnter={() => enter()} onMouseLeave={() => leave()}>
+    <Link href={href ? href: ""} onMouseEnter={() => enter()} onMouseLeave={() => leave()}>
       <Box w="300px" h="200px" overflow="hidden" display="inline-block" position="relative">
         <Image objectFit="cover" w="100%" h="100%" src={img} alt="img" />
         <Center
@@ -63,7 +63,7 @@ export const ImageCard: React.FC<ImageCardProps> = ({
           _hover={{ opacity: 0.9 }}
           transitionDuration="1s"
         >
-          <Text color="black" fontWeight="bold" fontSize="lg">
+          <Text m="10px" color="black" fontWeight="bold" fontSize="lg">
             {text}
           </Text>
         </Center>
