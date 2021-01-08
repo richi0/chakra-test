@@ -52,7 +52,7 @@ export const HorizontalCard: React.FC<HorizontalCardProps> = ({
         minW="40%"
         alignItems="center"
       >
-        <Image src={img} alt={title} maxH={["auto", "auto", "300px"]} />
+        <Image src={img} alt={title} maxH={["400px", "400px", "300px"]} />
       </Flex>
       <Flex maxW={['100%', '100%', '100%']} direction="column" p="20px">
         <Box my="auto">

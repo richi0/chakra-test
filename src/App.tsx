@@ -4,6 +4,7 @@ import Projects from './pages/projects'
 import { ChakraProvider, extendTheme, CSSReset } from '@chakra-ui/react'
 import './App.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Customers from './pages/customers'
 
 const theme = extendTheme({
   colors: {
@@ -39,6 +40,9 @@ export const App = () => (
       <Switch>
         <Route path="/projects">
           <Projects />
+        </Route>
+        <Route path="/customers">
+          <Customers />
         </Route>
         <Route path="/">
           <Home />

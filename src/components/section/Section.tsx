@@ -16,7 +16,7 @@ export const Section: React.FC<SectionProps> = ({ title, children }) => {
       mx={['5px', '5px', '10px', 'auto']}
       p={['5px', '5px', '10px', '20px']}
       shadow="xl"
-      maxW="1000px"
+      maxW="1200px"
     >
       <Text
         fontSize="2xl"

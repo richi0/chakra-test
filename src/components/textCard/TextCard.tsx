@@ -31,7 +31,7 @@ export const TextCard: React.FC<TextCardProps> = ({
       spacing="20px"
       shadow="lg"
       p="20px"
-      maxW="90%"
+      maxW="300px"
       m="auto"
       _hover={
         href
