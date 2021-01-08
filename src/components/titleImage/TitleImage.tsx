@@ -18,7 +18,7 @@ export interface TitleImageProps {
 
 export const TitleImage: React.FC<TitleImageProps> = ({ img, title, text }) => {
   return (
-    <Box pos="relative">
+    <Box as="section" pos="relative">
       <Image w="100%" h="80vh" objectFit="cover" src={img} alt="title image" />
       <Center w="100%" h="100%" position="absolute" top="0px" left="0px">
         <Box textAlign="center">

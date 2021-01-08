@@ -27,8 +27,8 @@ export const Navbar: React.FC<NavbarProps> = ({ logo, brand, links }) => {
   }
 
   return (
-    <Box h="auto" position="relative">
-      <HStack spacing="20px" bg="gray.100" p="10px" align="center">
+    <Box as="header" h="auto" position="relative">
+      <HStack as="nav" spacing="20px" bg="gray.100" p="10px" align="center">
         <Link href="/">
           <Box boxSize="50px">
             <Image w="100%" src={logo} alt="logo" />

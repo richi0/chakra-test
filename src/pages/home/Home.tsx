@@ -6,7 +6,13 @@ import ImageCard from '../../components/imageCard'
 import h1 from '../../static/images/h1.jpg'
 import h2 from '../../static/images/h2.jpg'
 import h3 from '../../static/images/h3.jpg'
-import { Box } from '@chakra-ui/react'
+import h4 from '../../static/images/h4.jpg'
+import h5 from '../../static/images/h5.jpg'
+import h6 from '../../static/images/h6.jpg'
+import h7 from '../../static/images/h7.jpg'
+import { Text, Box } from '@chakra-ui/react'
+import Section from '../../components/section'
+import HorizontalCard from '../../components/horizontalCard'
 
 const cardData = [
   {
@@ -26,6 +32,33 @@ const cardData = [
   },
 ]
 
+const missionData = [
+  {
+    img: h4,
+    title: 'Hard work',
+    text: 'Work hard no matter what.',
+    right: true,
+  },
+  {
+    img: h5,
+    title: 'Hard work',
+    text: 'Work hard no matter what.',
+    right: false,
+  },
+  {
+    img: h6,
+    title: 'Hard work',
+    text: 'Work hard no matter what.',
+    right: true,
+  },
+  {
+    img: h7,
+    title: 'Hard work',
+    text: 'Work hard no matter what.',
+    right: false,
+  },
+]
+
 export const Home: React.FC<{}> = () => {
   return (
     <Layout
@@ -34,13 +67,25 @@ export const Home: React.FC<{}> = () => {
       title="Welcome to RANDOM ENGENEERING"
       text="Bringing your ideas and innovations to life."
     >
-      <Box p="30px" w="100%" mx="auto">
+      <Section title="Our core values">
         <CardBrowser
-          cards={cardData.map((card) => (
-            <ImageCard img={card.img} title={card.title} text={card.text} />
+          cards={cardData.map((card, key) => (
+            <ImageCard img={card.img} title={card.title} text={card.text} key={key}/>
           ))}
         />
-      </Box>
+      </Section>
+      <Section title="Our mission">
+        {missionData.map((card, key) => (
+          <Box mb="20px" key={key}>
+          <HorizontalCard
+            img={card.img}
+            title={card.title}
+            text={card.text}
+            right={card.right}
+          />
+          </Box>
+        ))}
+      </Section>
     </Layout>
   )
 }

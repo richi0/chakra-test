@@ -38,12 +38,14 @@ export const HorizontalCard_2 = Template.bind({})
 HorizontalCard_2.args = {
   title: "Shot text",
   text: short_text,
-  img: img2
+  img: img2,
+  href: "https://wikipedia.com"
 }
 
 export const HorizontalCard_3 = Template.bind({})
 HorizontalCard_3.args = {
   title: "Shot text",
   text: short_text,
-  img: img1
+  img: img1,
+  href: "https://wikipedia.com"
 }

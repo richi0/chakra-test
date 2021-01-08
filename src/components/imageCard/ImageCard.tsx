@@ -36,7 +36,7 @@ export const ImageCard: React.FC<ImageCardProps> = ({
 
   return (
     <Link href={href ? href: ""} onMouseEnter={() => enter()} onMouseLeave={() => leave()}>
-      <Box w="300px" h="200px" overflow="hidden" display="inline-block" position="relative">
+      <Box w="100%" maxW="300px" maxH="200px" overflow="hidden" display="inline-block" position="relative">
         <Image objectFit="cover" w="100%" h="100%" src={img} alt="img" />
         <Center
           display={style === 'none' ? 'none' : 'flex'}
