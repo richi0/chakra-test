@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Customers from './pages/customers'
 import Carrer from './pages/carrer'
 import About from './pages/about'
+import Contact from './pages/contact'
 
 const theme = extendTheme({
   colors: {
@@ -51,6 +52,9 @@ export const App = () => (
         </Route>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/contact">
+          <Contact />
         </Route>
         <Route path="/">
           <Home />

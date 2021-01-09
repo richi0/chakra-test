@@ -70,7 +70,7 @@ export const Carrer: React.FC<{}> = () => {
       <Section title="What our employees say">
         <Flex wrap="wrap" p="10px" justifyContent="center">
           {employeeData.map((card, key) => (
-            <Box m="10px">
+            <Box m="10px" key={key}>
               <TextCard
                 img={card.img}
                 title={card.title}
@@ -84,7 +84,7 @@ export const Carrer: React.FC<{}> = () => {
       <Section title="Open positions">
         <Flex wrap="wrap" p="10px" justifyContent="center">
           {positionsData.map((card, key) => (
-            <Box m="10px" w="100%">
+            <Box m="10px" w="100%" key={key}>
               <HorizontalCard
                 img={card.img}
                 title={card.title}

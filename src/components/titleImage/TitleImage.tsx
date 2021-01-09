@@ -23,7 +23,7 @@ export const TitleImage: React.FC<TitleImageProps> = ({ img, title, text }) => {
       <Center w="100%" h="100%" position="absolute" top="0px" left="0px">
         <Box textAlign="center">
           <Text as="h1" p="20px" fontSize="4xl" color="white">{title}</Text>
-          <Text p="20px" fontSize="xl" color="white">{text}</Text>
+          <Text p="20px" fontSize="xl" color="white" fontWeight="bold">{text}</Text>
         </Box>
       </Center>
     </Box>

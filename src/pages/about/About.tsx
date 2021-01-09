@@ -113,8 +113,8 @@ export const About: React.FC<{}> = () => {
     >
       <Section title="Our Story and our values">
         <Flex wrap="wrap" p="10px" justifyContent="center">
-          {aboutData.map((card) => (
-            <Box m="10px">
+          {aboutData.map((card, key) => (
+            <Box m="10px" key={key}>
               <TextCard title={card.title} text={card.text} />
             </Box>
           ))}
