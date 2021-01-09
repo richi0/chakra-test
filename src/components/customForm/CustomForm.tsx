@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Flex, Text } from '@chakra-ui/react'
-import { CustomInput } from '../customInput/CustomInput'
+import { CustomInput, CustomInputProps } from '../customInput/CustomInput'
 import CustomButton from '../customButton'
 
 interface inputProps {
@@ -29,6 +29,7 @@ export interface CustomFormProps {
   submitText?: string
 }
 
+
 export const CustomForm: React.FC<CustomFormProps> = ({
   title,
   inputs,
@@ -36,13 +37,14 @@ export const CustomForm: React.FC<CustomFormProps> = ({
   submitText = 'Submit',
 }) => {
   const inputData = inputs.map((input) => ({ label: input.label, data: '' }))
-  const allInputs = []
+  var allInputs: CustomInputProps[] = []
 
   for (let i = 0; i < inputs.length; i++) {
     allInputs.push({
       label: inputs[i].label,
       type: inputs[i].type,
       area: inputs[i].area,
+      reset: false,
       help: inputs[i].help,
       sendValue: (v: string) => {
         inputData[i].data = v
@@ -50,11 +52,23 @@ export const CustomForm: React.FC<CustomFormProps> = ({
     })
   }
 
-  const onSubmit = () => sendSubmit(inputData)
+  const onSubmit = () => {
+    sendSubmit(inputData)
+    //allInputs.forEach((imput) => (imput.reset = true))
+  }
 
   return (
-    <Box mt="30px" p="10px" maxW="600px" mx="auto" border="1px" borderColor="primary.500">
-      <Text mb="20px" fontSize="xl" fontWeight="bold" textAlign="center">{title}</Text>
+    <Box
+      mt="30px"
+      p="10px"
+      maxW="600px"
+      mx="auto"
+      border="1px"
+      borderColor="primary.500"
+    >
+      <Text mb="20px" fontSize="xl" fontWeight="bold" textAlign="center">
+        {title}
+      </Text>
       <Flex direction="column" sx={{ gap: '20px' }}>
         {allInputs.map((input, key) => (
           <CustomInput

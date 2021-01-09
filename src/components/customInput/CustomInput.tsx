@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Box,
   Flex,
@@ -27,6 +27,10 @@ export interface CustomInputProps {
    */
   area?: boolean
   /**
+   * Set true to reset all values to ""
+   */
+  reset?: boolean
+  /**
    * Help text
    */
   help?: string
@@ -37,16 +41,25 @@ export const CustomInput: React.FC<CustomInputProps> = ({
   type,
   sendValue,
   area = false,
+  reset = false,
   help,
 }) => {
   const [value, setValue] = useState('')
+
   const handleChange = (
     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => {
     let v = e.target.value
-    setValue(v)
     sendValue(v)
+    setValue(v)
   }
+
+  useEffect(() => {
+    if (reset) {
+      setValue('')
+    }
+  }, [reset])
+
   return (
     <FormControl>
       <Flex direction={['column', 'row']}>
