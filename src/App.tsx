@@ -6,6 +6,7 @@ import './App.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Customers from './pages/customers'
 import Carrer from './pages/carrer'
+import About from './pages/about'
 
 const theme = extendTheme({
   colors: {
@@ -47,6 +48,9 @@ export const App = () => (
         </Route>
         <Route path="/carrer">
           <Carrer />
+        </Route>
+        <Route path="/about">
+          <About />
         </Route>
         <Route path="/">
           <Home />
