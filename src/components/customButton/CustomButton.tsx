@@ -19,7 +19,7 @@ export interface CustomButtonProps {
 export const CustomButton: React.FC<CustomButtonProps> = ({
   label,
   onClick,
-  mode,
+  mode = 'primary',
 }) => {
   return (
     <Button

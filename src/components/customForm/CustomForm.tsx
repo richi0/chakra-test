@@ -1,11 +1,24 @@
-import React, { useRef } from 'react'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import React, { useRef, useState } from 'react'
+import {
+  Box,
+  Flex,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react'
 import { CustomInput } from '../customInput/CustomInput'
 import CustomButton from '../customButton'
 
 interface inputProps {
   label: string
   type: string
+  area?: boolean
   help?: string
 }
 
@@ -34,21 +47,35 @@ export const CustomForm: React.FC<CustomFormProps> = ({
   sendSubmit,
   submitText = 'Submit',
 }) => {
+  const [modalTitle, setModalTitle] = useState('')
+  const [modalText, setModalText] = useState('')
   const nullRef = useRef<HTMLInputElement>(null)
-  const inputRefs = inputs.map((ref) => nullRef)
+  const inputRefs = inputs.map(() => nullRef)
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const onSubmit = () => {
-    sendSubmit(
-      inputs.map((input, key) => {
-        return { lable: input.label, value: inputRefs[key].current?.value }
-      }),
-    )
-    inputRefs.forEach((ref) => {
-      let a = ref.current
-      if (a) {
-        a.value = ''
-      }
-    })
+    if (inputRefs.map((input) => input.current?.value).every((v) => v !== '')) {
+      setModalTitle('Message send successfully!')
+      setModalText(
+        'Thanks for your message. We will contact you as soon as possible.',
+      )
+      sendSubmit(
+        inputs.map((input, key) => {
+          return { lable: input.label, value: inputRefs[key].current?.value }
+        }),
+      )
+      inputRefs.forEach((ref) => {
+        let a = ref.current
+        if (a) {
+          a.value = ''
+        }
+      })
+      onOpen()
+    } else {
+      setModalTitle('Data missing!')
+      setModalText('Some data is missing. Please fill all the fields.')
+      onOpen()
+    }
   }
 
   return (
@@ -71,6 +98,7 @@ export const CustomForm: React.FC<CustomFormProps> = ({
             sendRef={(ref) => {
               inputRefs[key] = ref
             }}
+            area={input.area}
             help={input.help}
             key={key}
           />
@@ -79,6 +107,19 @@ export const CustomForm: React.FC<CustomFormProps> = ({
       <Flex m="20px" justifyContent="flex-end">
         <CustomButton label={submitText} mode="primary" onClick={onSubmit} />
       </Flex>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{modalTitle}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>{modalText}</ModalBody>
+          <ModalFooter>
+            <Box mr="20px">
+              <CustomButton label="Close" onClick={onClose} />
+            </Box>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   )
 }

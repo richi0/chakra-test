@@ -29,7 +29,7 @@ CustomForm_2.args = {
     { label: 'Email address', type: 'email' },
     { label: 'Password', type: 'password' },
     { label: 'Repeat password', type: 'password' },
-    { label: 'Message', type: 'text' },
+    { label: 'Message', type: 'text', area: true },
   ],
   sendSubmit: (data) => console.log(data),
 }
