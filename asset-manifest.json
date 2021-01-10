@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/chakra-test/static/css/main.01a487fd.chunk.css",
-    "main.js": "/chakra-test/static/js/main.fe8f4619.chunk.js",
-    "main.js.map": "/chakra-test/static/js/main.fe8f4619.chunk.js.map",
+    "main.js": "/chakra-test/static/js/main.4834e283.chunk.js",
+    "main.js.map": "/chakra-test/static/js/main.4834e283.chunk.js.map",
     "runtime-main.js": "/chakra-test/static/js/runtime-main.2478b103.js",
     "runtime-main.js.map": "/chakra-test/static/js/runtime-main.2478b103.js.map",
-    "static/js/2.ec9a9b2e.chunk.js": "/chakra-test/static/js/2.ec9a9b2e.chunk.js",
-    "static/js/2.ec9a9b2e.chunk.js.map": "/chakra-test/static/js/2.ec9a9b2e.chunk.js.map",
+    "static/js/2.3874ff9c.chunk.js": "/chakra-test/static/js/2.3874ff9c.chunk.js",
+    "static/js/2.3874ff9c.chunk.js.map": "/chakra-test/static/js/2.3874ff9c.chunk.js.map",
     "static/js/3.5016e034.chunk.js": "/chakra-test/static/js/3.5016e034.chunk.js",
     "static/js/3.5016e034.chunk.js.map": "/chakra-test/static/js/3.5016e034.chunk.js.map",
     "index.html": "/chakra-test/index.html",
     "static/css/main.01a487fd.chunk.css.map": "/chakra-test/static/css/main.01a487fd.chunk.css.map",
-    "static/js/2.ec9a9b2e.chunk.js.LICENSE.txt": "/chakra-test/static/js/2.ec9a9b2e.chunk.js.LICENSE.txt",
+    "static/js/2.3874ff9c.chunk.js.LICENSE.txt": "/chakra-test/static/js/2.3874ff9c.chunk.js.LICENSE.txt",
     "static/media/1.3d59cfd6.png": "/chakra-test/static/media/1.3d59cfd6.png",
     "static/media/10.375ea9dd.png": "/chakra-test/static/media/10.375ea9dd.png",
     "static/media/11.a4a3b9eb.png": "/chakra-test/static/media/11.a4a3b9eb.png",
@@ -74,8 +74,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2478b103.js",
-    "static/js/2.ec9a9b2e.chunk.js",
+    "static/js/2.3874ff9c.chunk.js",
     "static/css/main.01a487fd.chunk.css",
-    "static/js/main.fe8f4619.chunk.js"
+    "static/js/main.4834e283.chunk.js"
   ]
 }
