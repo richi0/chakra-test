@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, {useRef, useEffect} from 'react'
 import {
   Box,
   Flex,
@@ -6,7 +6,6 @@ import {
   FormHelperText,
   FormLabel,
   Input,
-  Textarea,
 } from '@chakra-ui/react'
 
 export interface CustomInputProps {
@@ -19,17 +18,9 @@ export interface CustomInputProps {
    */
   type: string
   /**
-   * Return value to parents
+   * Send the reference of the Input to the parent
    */
-  sendValue: (v: string) => void
-  /**
-   * Set true if you need a textarea
-   */
-  area?: boolean
-  /**
-   * Set true to reset all values to ""
-   */
-  reset?: boolean
+  sendRef: (ref: React.RefObject<HTMLInputElement>) => void
   /**
    * Help text
    */
@@ -39,26 +30,12 @@ export interface CustomInputProps {
 export const CustomInput: React.FC<CustomInputProps> = ({
   label,
   type,
-  sendValue,
-  area = false,
-  reset = false,
+  sendRef,
   help,
 }) => {
-  const [value, setValue] = useState('')
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
-  ) => {
-    let v = e.target.value
-    sendValue(v)
-    setValue(v)
-  }
-
-  useEffect(() => {
-    if (reset) {
-      setValue('')
-    }
-  }, [reset])
+  useEffect(() => sendRef(inputRef))
 
   return (
     <FormControl>
@@ -67,21 +44,7 @@ export const CustomInput: React.FC<CustomInputProps> = ({
           {label}
         </FormLabel>
         <Box w="100%">
-          {area ? (
-            <Textarea
-              type={type}
-              value={value}
-              onChange={handleChange}
-              placeholder={label}
-            ></Textarea>
-          ) : (
-            <Input
-              type={type}
-              value={value}
-              onChange={handleChange}
-              placeholder={label}
-            />
-          )}
+          <Input type={type} placeholder={label} ref={inputRef} />
           {help ? <FormHelperText>{help}</FormHelperText> : null}
         </Box>
       </Flex>

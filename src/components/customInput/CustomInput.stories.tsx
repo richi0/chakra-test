@@ -13,7 +13,7 @@ export const CustomInput_1 = Template.bind({})
 CustomInput_1.args = {
   label: "User name",
   type: "text",
-  sendValue: (v) => v,
+  sendRef: () => null,
   help: "Write your user name"
 }
 
@@ -21,7 +21,7 @@ export const CustomInput_2 = Template.bind({})
 CustomInput_2.args = {
   label: "Password",
   type: "password",
-  sendValue: (v) => v,
+  sendRef: () => null,
   help: "Keey your password secure"
 }
 
@@ -29,7 +29,6 @@ export const CustomInput_3 = Template.bind({})
 CustomInput_3.args = {
   label: "Message",
   type: "text",
-  sendValue: (v) => v,
+  sendRef: () => null,
   help: "Write your message here",
-  area:true
 }

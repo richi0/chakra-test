@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Box, Flex, Text } from '@chakra-ui/react'
-import { CustomInput, CustomInputProps } from '../customInput/CustomInput'
+import { CustomInput } from '../customInput/CustomInput'
 import CustomButton from '../customButton'
 
 interface inputProps {
   label: string
   type: string
-  area?: boolean
   help?: string
 }
 
@@ -29,32 +28,27 @@ export interface CustomFormProps {
   submitText?: string
 }
 
-
 export const CustomForm: React.FC<CustomFormProps> = ({
   title,
   inputs,
   sendSubmit,
   submitText = 'Submit',
 }) => {
-  const inputData = inputs.map((input) => ({ label: input.label, data: '' }))
-  var allInputs: CustomInputProps[] = []
-
-  for (let i = 0; i < inputs.length; i++) {
-    allInputs.push({
-      label: inputs[i].label,
-      type: inputs[i].type,
-      area: inputs[i].area,
-      reset: false,
-      help: inputs[i].help,
-      sendValue: (v: string) => {
-        inputData[i].data = v
-      },
-    })
-  }
+  const nullRef = useRef<HTMLInputElement>(null)
+  const inputRefs = inputs.map((ref) => nullRef)
 
   const onSubmit = () => {
-    sendSubmit(inputData)
-    //allInputs.forEach((imput) => (imput.reset = true))
+    sendSubmit(
+      inputs.map((input, key) => {
+        return { lable: input.label, value: inputRefs[key].current?.value }
+      }),
+    )
+    inputRefs.forEach((ref) => {
+      let a = ref.current
+      if (a) {
+        a.value = ''
+      }
+    })
   }
 
   return (
@@ -70,12 +64,13 @@ export const CustomForm: React.FC<CustomFormProps> = ({
         {title}
       </Text>
       <Flex direction="column" sx={{ gap: '20px' }}>
-        {allInputs.map((input, key) => (
+        {inputs.map((input, key) => (
           <CustomInput
             label={input.label}
             type={input.type}
-            sendValue={input.sendValue}
-            area={input.area}
+            sendRef={(ref) => {
+              inputRefs[key] = ref
+            }}
             help={input.help}
             key={key}
           />

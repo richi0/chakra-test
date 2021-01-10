@@ -21,11 +21,11 @@ const inputs = [
   {
     label: 'Phone number',
     type: 'tel',
+    help: "Format +(xx) xx xxx xx xx"
   },
   {
     label: 'Message',
     type: 'text',
-    area: true
   },
 ]
 
@@ -44,6 +44,7 @@ export const Contact: React.FC<{}> = () => {
           title="Contact Form"
           inputs={inputs}
           sendSubmit={proccessFromData}
+          submitText="aaa"
         />
       </Section>
       <Section title="Where you find us">
