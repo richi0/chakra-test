@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from '../../test-utils'
-import { Carrer } from './Carrer'
+import { Career } from './Career'
 
 test('render Carrer', () => {
-  const {container} = render(<Carrer />)
+  const {container} = render(<Career />)
   const div = container.querySelector('div')
   expect(div).toBeInTheDocument()
 })

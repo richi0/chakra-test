@@ -5,7 +5,7 @@ import { ChakraProvider, extendTheme, CSSReset } from '@chakra-ui/react'
 import './App.css'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import Customers from './pages/customers'
-import Carrer from './pages/carrer'
+import Career from './pages/career'
 import About from './pages/about'
 import Contact from './pages/contact'
 
@@ -47,8 +47,8 @@ export const App = () => (
         <Route path="/customers">
           <Customers />
         </Route>
-        <Route path="/carrer">
-          <Carrer />
+        <Route path="/career">
+          <Career />
         </Route>
         <Route path="/about">
           <About />

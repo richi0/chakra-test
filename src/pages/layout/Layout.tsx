@@ -35,11 +35,11 @@ const links = [
   },
   {
     text: 'Customers',
-    href: '/Customers',
+    href: '/customers',
   },
   {
-    text: 'Carrer',
-    href: '/carrer',
+    text: 'Career',
+    href: '/career',
   },
   {
     text: 'About',
@@ -74,7 +74,13 @@ const social = [
   },
 ]
 
-export const Layout: React.FC<LayoutProps> = ({ activeLink, titleImage, title, text, children }) => {
+export const Layout: React.FC<LayoutProps> = ({
+  activeLink,
+  titleImage,
+  title,
+  text,
+  children,
+}) => {
   const activeLinkMarked = links.map((link) =>
     link.text === activeLink
       ? { text: link.text, href: link.href, active: true }
@@ -83,11 +89,7 @@ export const Layout: React.FC<LayoutProps> = ({ activeLink, titleImage, title, t
   return (
     <Flex w="100%" h="100%" direction="column">
       <Navbar links={activeLinkMarked} logo={logo} brand="Random Engineering" />
-      <TitleImage
-        img={titleImage}
-        title={title}
-        text={text}
-      />
+      <TitleImage img={titleImage} title={title} text={text} />
       <Box>{children}</Box>
       <Spacer />
       <Footer

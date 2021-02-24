@@ -59,10 +59,10 @@ const positionsData = [
   },
 ]
 
-export const Carrer: React.FC<{}> = () => {
+export const Career: React.FC<{}> = () => {
   return (
     <Layout
-      activeLink="Carrer"
+      activeLink="Career"
       titleImage={img0}
       title="Welcome to Random Engineering Careers"
       text="As a leading employer in the urban mobility industry, we look for people who create exceptional value for our customers."
